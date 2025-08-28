@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>CodeXsukh | Portfolio </title>
+    <title>CodeXsukh | Portfolio</title>
     
     <!-- Meta Tags for SEO -->
     <meta name="description" content="Welcome to CodeXsukh's portfolio. A passionate full-stack developer specializing in web development, Django, React, and scalable applications.">
@@ -12,13 +12,12 @@
     <meta name="author" content="Sukhchain Singh">
     <meta name="robots" content="index, follow">
 
-
     <!-- Open Graph Meta Tags for Social Media Sharing -->
-<meta property="og:title" content="CodeXsukh | Full-Stack Developer Portfolio">
-<meta property="og:description" content="Explore my projects, skills, and experience in full-stack web development. Passionate about Django, React, and scalable applications.">
-<meta property="og:image" content="https://sukhsingh1313.github.io/codeXsukh-portfolio/images/preview.png">
-<meta property="og:url" content="https://sukhsingh1313.github.io/codeXsukh-portfolio/">
-<meta property="og:type" content="website">
+    <meta property="og:title" content="CodeXsukh | Full-Stack Developer Portfolio">
+    <meta property="og:description" content="Explore my projects, skills, and experience in full-stack web development. Passionate about Django, React, and scalable applications.">
+    <meta property="og:image" content="https://sukhsingh1313.github.io/codeXsukh-portfolio/images/preview.png">
+    <meta property="og:url" content="https://sukhsingh1313.github.io/codeXsukh-portfolio/">
+    <meta property="og:type" content="website">
 
     <!-- Favicon -->
     <link rel="icon" href="/codeXsukh-portfolio/public/images/favicon.ico" type="image/x-icon">
@@ -29,43 +28,348 @@
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="public/css/style.css">
-<!--     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"> -->
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
 
     <!-- Performance Optimization -->
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    
+    <style>
+        :root {
+            --primary-color: #28a745;
+            --secondary-color: #212529;
+            --accent-color: #17a2b8;
+            --text-color: #f8f9fa;
+            --bg-dark: #121212;
+            --card-bg: #1e1e1e;
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-color);
+            overflow-x: hidden;
+            padding-top: 76px; /* Account for fixed navbar */
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .navbar {
+            background-color: rgba(18, 18, 18, 0.95) !important;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-family: 'Fira Code', monospace;
+            position: relative;
+        }
+        
+        .navbar-brand::after {
+            content: '</>';
+            color: var(--primary-color);
+            margin-left: 5px;
+        }
+        
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: var(--transition);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(18, 18, 18, 0.9), rgba(18, 18, 18, 0.9)), 
+                        url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, var(--primary-color) 0%, transparent 50%);
+            opacity: 0.05;
+            animation: pulse 15s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.05; }
+            50% { transform: scale(1.5); opacity: 0.1; }
+            100% { transform: scale(1); opacity: 0.05; }
+        }
+        
+        .display-1 {
+            font-size: 3.5rem;
+            background: linear-gradient(to right, #28a745, #17a2b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .section-heading {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+        }
+        
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 70px;
+            height: 4px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .section-heading:hover::after {
+            width: 100%;
+        }
+        
+        .skill-badge {
+            background-color: rgba(40, 167, 69, 0.2) !important;
+            color: var(--primary-color) !important;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+        
+        .skill-badge:hover {
+            background-color: rgba(40, 167, 69, 0.3) !important;
+            transform: translateY(-3px);
+            border-color: var(--primary-color);
+        }
+        
+        .course-card, .project-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            transition: var(--transition);
+            height: 100%;
+            border: 1px solid #2a2a2a;
+            overflow: hidden;
+        }
+        
+        .course-card:hover, .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-color: var(--primary-color);
+        }
+        
+        .course-card i {
+            transition: var(--transition);
+        }
+        
+        .course-card:hover i {
+            transform: scale(1.2);
+            color: var(--primary-color) !important;
+        }
+        
+        .social-icon {
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--card-bg);
+        }
+        
+        .social-icon:hover {
+            color: var(--primary-color) !important;
+            transform: translateY(-5px);
+            background-color: rgba(40, 167, 69, 0.1);
+        }
+        
+        .bg-dark-custom {
+            background-color: var(--card-bg) !important;
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            border: none;
+            padding: 0.8rem 2rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .btn-success:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+        }
+        
+        .btn-outline-success {
+            border-width: 2px;
+            font-weight: 600;
+            padding: 0.8rem 2rem;
+            transition: var(--transition);
+        }
+        
+        .btn-outline-success:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+        }
+        
+        /* Animated elements */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Progress bars for skills */
+        .progress {
+            height: 8px;
+            background-color: #2a2a2a;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            background: linear-gradient(90deg, #28a745, #20c997);
+            transition: width 1s ease-in-out;
+        }
+        
+        /* Code snippet styling */
+        .code-snippet {
+            font-family: 'Fira Code', monospace;
+            background-color: #1a1a1a;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .display-1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-heading {
+                font-size: 2rem;
+            }
+            
+            .hero-section {
+                text-align: center;
+                padding: 2rem 0;
+            }
+        }
+        
+        /* Animation keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Particle animation background for some sections */
+        .particle-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .particle-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(40, 167, 69, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(23, 162, 184, 0.1) 0%, transparent 40%);
+            z-index: -1;
+        }
+        
+        /* Timeline for experience */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+            margin: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3rem;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            border: 3px solid var(--bg-dark);
+        }
+    </style>
 </head>
 
-        <style>
-    .social-icon {
-        transition: 0.3s;
-    }
-    .social-icon:hover {
-        color: #28a745; /* Bootstrap success green */
-        transform: scale(1.1);
-    }
-      .heading-line {
-    transition: width 0.3s ease;
-}
-
-.project-card:hover .heading-line {
-    width: 100px !important;
-}
-
-.project-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(255,255,255,0.1) !important;
-}
-
-</style>
-
-</head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
@@ -90,19 +394,20 @@
         <div class="container text-center">
             <h1 class="display-1 fw-bold mb-4">Full-Stack Developer & Coding Mentor</h1>
             <p class="lead fs-4 mb-5">Building Digital Solutions & Empowering Developers</p>
-            <div class="d-flex gap-3 justify-content-center">
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
                 <a href="#courses" class="btn btn-lg btn-success px-5">View Courses</a>
+                <a href="#projects" class="btn btn-lg btn-outline-light px-5">My Projects</a>
                 <a href="#contact" class="btn btn-lg btn-outline-success px-5">Hire Me</a>
             </div>
         </div>
     </header>
 
-    <section id="about" class="py-5">
+    <section id="about" class="py-5 particle-bg">
         <div class="container">
             <h2 class="section-heading">About Me</h2>
             <div class="row align-items-center">
                 <div class="col-md-4 text-center mb-4">
-                    <img src="public/images/sukh.jpg" alt="CodeXsukh" class="img-fluid rounded-circle" style="max-width: 250px;">
+                    <img src="public/images/sukh.jpg" alt="CodeXsukh" class="img-fluid rounded-circle shadow" style="max-width: 250px;">
                 </div>
                 <div class="col-md-8">
                     <p class="lead">Hi! I'm Sukhchain Singh, a full-stack developer with 2+ years of experience in building enterprise-level applications. I specialize in:</p>
@@ -115,325 +420,543 @@
                         <span class="badge skill-badge fs-6">Cloud Deployment</span>
                     </div>
                     <p class="mb-4">As an educator, I've helped 200+ students transition into tech careers through comprehensive coding bootcamps and personalized mentorship programs.</p>
+                    
+                    <div class="mt-4">
+                        <h4>My Journey</h4>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h5>Full-Stack Developer</h5>
+                                <p class="text-muted">2022 - Present</p>
+                                <p>Building scalable web applications for various clients</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h5>Coding Mentor</h5>
+                                <p class="text-muted">2021 - 2022</p>
+                                <p>Mentoring aspiring developers and creating educational content</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h5>Computer Science Graduate</h5>
+                                <p class="text-muted">2017 - 2021</p>
+                                <p>Completed degree with focus on software engineering</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="courses" class="py-5 bg-dark">
+    <section id="skills" class="py-5 bg-dark">
+        <div class="container">
+            <h2 class="section-heading">Technical Skills</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <h4>Frontend Development</h4>
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between">
+                            <span>HTML/CSS</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between">
+                            <span>JavaScript</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between">
+                            <span>React</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between">
+                            <span>Bootstrap</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <h4>Backend Development</h4>
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between">
+                            <span>Python/Django</span>
+                            <span>92%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 92%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between">
+                            <span>Node.js/Express</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between">
+                            <span>Database Design</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 88%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between">
+                            <span>REST APIs</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-5">
+                <h4>Coding Example</h4>
+                <div class="code-snippet">
+                    <pre><code># Python Fibonacci function
+def fibonacci(n):
+    """Return the nth Fibonacci number."""
+    if n <= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+
+# Print first 10 Fibonacci numbers
+for i in range(10):
+    print(f"F({i}) = {fibonacci(i)}")</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+<section id="coderunner" class="py-5 bg-dark">
+  <div class="container">
+    <h2 class="section-heading">Try Code Online</h2>
+    <p class="lead mb-4">Run Python, C, and C++ snippets directly here (Python works fully, C/C++ placeholders).</p>
+    
+    <!-- Tabs -->
+    <ul class="nav nav-tabs mb-3" id="langTabs">
+      <li class="nav-item"><a class="nav-link active" data-lang="python" href="#">Python</a></li>
+      <li class="nav-item"><a class="nav-link" data-lang="c" href="#">C</a></li>
+      <li class="nav-item"><a class="nav-link" data-lang="cpp" href="#">C++</a></li>
+    </ul>
+    
+    <!-- Editor -->
+    <textarea id="codeEditor" class="form-control" rows="10">print("Hello Python!")</textarea>
+    
+    <div class="mt-3">
+      <button class="btn btn-success" onclick="runCode()">Run Code</button>
+    </div>
+    
+    <!-- Output -->
+    <h4 class="mt-4">Output:</h4>
+    <pre id="output" class="p-3 bg-black text-success rounded"></pre>
+  </div>
+</section>
+    <section id="courses" class="py-5 particle-bg">
         <div class="container">
             <h2 class="section-heading">Featured Courses</h2>
+            <p class="lead mb-5">Comprehensive programming courses designed for all skill levels</p>
+            
             <div class="row g-4" id="course-list">
-               
+                <!-- Courses loaded via JavaScript -->
             </div>
         </div>
     </section>
 
-    <section id="projects" class="py-5">
+    <section id="projects" class="py-5 bg-dark">
         <div class="container">
             <h2 class="section-heading">Recent Projects</h2>
             <div class="row g-4" id="project-list">
                 <!-- Projects loaded via JavaScript -->
             </div>
         </div>
-        <!-- Add this -->
-
     </section>
 
-<section id="contact" class="py-5 bg-dark text-white">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="fw-bold text-success">Contact Me</h2>
-            <p class="text-muted">Have a question or want to work together? Drop me a message!</p>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="p-4 bg-light rounded shadow-lg">
-                    <form id="contactForm">
-        <div class="mb-3">
-            <label class="form-label fw-bold"><i class="fa fa-user"></i> Your Name</label>
-            <input type="text" id="name" name="from_name" class="form-control form-control-lg" placeholder="Enter your name" required>
-        </div>
-        <div class="mb-3">
-            <label class="form-label fw-bold"><i class="fa fa-envelope"></i> Your Email</label>
-            <input type="email" id="email" name="from_email" class="form-control form-control-lg" placeholder="Enter your email" required>
-        </div>
-        <div class="mb-3">
-            <label class="form-label fw-bold"><i class="fa fa-comment"></i> Your Message</label>
-            <textarea id="message" name="message" class="form-control form-control-lg" rows="5" placeholder="Write your message" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-success btn-lg w-100 shadow-sm" id="submitBtn">
-            <i class="fa fa-paper-plane"></i> Send Message
-        </button>
-    </form>
+    <section id="contact" class="py-5 particle-bg">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-heading">Contact Me</h2>
+                <p class="lead">Have a question or want to work together? Drop me a message!</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="p-4 bg-dark-custom rounded shadow-lg">
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold"><i class="fa fa-user me-2"></i>Your Name</label>
+                                <input type="text" id="name" name="from_name" class="form-control form-control-lg" placeholder="Enter your name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-bold"><i class="fa fa-envelope me-2"></i>Your Email</label>
+                                <input type="email" id="email" name="from_email" class="form-control form-control-lg" placeholder="Enter your email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-bold"><i class="fa fa-comment me-2"></i>Your Message</label>
+                                <textarea id="message" name="message" class="form-control form-control-lg" rows="5" placeholder="Write your message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-success btn-lg w-100 shadow-sm" id="submitBtn">
+                                <i class="fa fa-paper-plane me-2"></i>Send Message
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
+    <footer class="bg-black text-light py-5">
+        <div class="container">
+            <div class="row text-center text-md-start">
+                <!-- About Section -->
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold text-success">About CodeXsukh</h5>
+                    <p class="text-muted">A passionate developer building creative and scalable solutions. Follow me for more tech insights.</p>
+                </div>
 
-   <footer class="bg-black text-light py-5">
-    <div class="container">
-        <div class="row text-center text-md-start">
-            <!-- About Section -->
-            <div class="col-md-4 mb-4">
-                <h5 class="fw-bold text-success">About CodeXsukh</h5>
-                <p class="text-muted">A passionate developer building creative and scalable solutions. Follow me for more tech insights.</p>
+                <!-- Quick Links -->
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold text-success">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="text-muted text-decoration-none">Home</a></li>
+                        <li><a href="#projects" class="text-muted text-decoration-none">Projects</a></li>
+                        <li><a href="#about" class="text-muted text-decoration-none">About</a></li>
+                        <li><a href="#contact" class="text-muted text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold text-success">Contact</h5>
+                    <p class="text-muted"><i class="fas fa-envelope me-2"></i>codersukh@gmail.com</p>
+                    <p class="text-muted"><i class="fas fa-phone me-2"></i>Coming soon...</p>
+                    <p class="text-muted"><i class="fas fa-map-marker-alt me-2"></i>Hanumangarh (Raj.), India</p>
+                </div>
             </div>
 
-            <!-- Quick Links -->
-            <div class="col-md-4 mb-4">
-                <h5 class="fw-bold text-success">Quick Links</h5>
-                <ul class="list-unstyled">
-                    <li><a href="#home" class="text-muted text-decoration-none">Home</a></li>
-                    <li><a href="#projects" class="text-muted text-decoration-none">Projects</a></li>
-                    <li><a href="#about" class="text-muted text-decoration-none">About</a></li>
-                    <li><a href="#contact" class="text-muted text-decoration-none">Contact</a></li>
-                </ul>
+            <!-- Social Media -->
+            <div class="text-center mt-4">
+                <h5 class="fw-bold text-success mb-4">Follow Me</h5>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="https://www.github.com/sukhsingh1313/" class="text-light fs-4 social-icon"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/sukhchain-singh1313/" class="text-light fs-4 social-icon"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/x_sukh_13/" class="text-light fs-4 social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@CodeXsukh" class="text-light fs-4 social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
             </div>
 
-            <!-- Contact Info -->
-            <div class="col-md-4 mb-4">
-                <h5 class="fw-bold text-success">Contact</h5>
-                <p class="text-muted"><i class="fas fa-envelope"></i>codersukh@gmail.com</p>
-                <p class="text-muted"><i class="fas fa-phone"></i> comming soon... </p>
-                <p class="text-muted"><i class="fas fa-map-marker-alt"></i> Hanumangarh (Raj.), India</p>
+            <!-- Copyright -->
+            <div class="text-center mt-4">
+                <p class="text-muted">&copy; 2025 CodeXsukh. All rights reserved.</p>
             </div>
         </div>
+    </footer>
 
-        <!-- Social Media -->
-        <div class="text-center mt-4">
-            <h5 class="fw-bold text-success">Follow Me</h5>
-            <div class="d-flex justify-content-center gap-3">
-                <a href="https://www.github.com/sukhsingh1313/" class="text-light fs-4 social-icon"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/sukhchain-singh1313/" class="text-light fs-4 social-icon"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.instagram.com/x_sukh_13/" class="text-light fs-4 social-icon"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
+<!-- Pyodide for Python -->
+<script src="https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js"></script>
+<script>
+  let currentLang = "python";
+  let pyodideReady = false;
 
-        <!-- Copyright -->
-        <div class="text-center mt-4">
-            <p class="text-muted">&copy; 2025 CodeXsukh. All rights reserved.</p>
-        </div>
-    </div>
-</footer>
+  // Load Pyodide for Python execution
+  async function initPyodide() {
+    window.pyodide = await loadPyodide();
+    pyodideReady = true;
+  }
+  initPyodide();
 
+  // Tab switching
+  document.querySelectorAll("#langTabs .nav-link").forEach(tab => {
+    tab.addEventListener("click", (e) => {
+      e.preventDefault();
+      document.querySelectorAll("#langTabs .nav-link").forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+      currentLang = tab.getAttribute("data-lang");
+      
+      // Default code per language
+      if (currentLang === "python") {
+        document.getElementById("codeEditor").value = 'print("Hello Python!")';
+      } else if (currentLang === "c") {
+        document.getElementById("codeEditor").value = '#include <stdio.h>\nint main(){\n   printf("Hello C!");\n   return 0;\n}';
+      } else if (currentLang === "cpp") {
+        document.getElementById("codeEditor").value = '#include <iostream>\nusing namespace std;\nint main(){\n   cout << "Hello C++!" << endl;\n   return 0;\n}';
+      }
+      document.getElementById("output").innerText = "";
+    });
+  });
+
+  // Run Code
+  async function runCode() {
+    let code = document.getElementById("codeEditor").value;
+    let output = document.getElementById("output");
+
+    if (currentLang === "python") {
+      if (!pyodideReady) {
+        output.innerText = "Python is still loading, please wait...";
+        return;
+      }
+      try {
+        let result = await pyodide.runPythonAsync(code);
+        output.innerText = result ?? "Code executed!";
+      } catch (err) {
+        output.innerText = "Error: " + err;
+      }
+    } else {
+      output.innerText = `⚠️ Running ${currentLang.toUpperCase()} code requires a backend or WebAssembly compiler.\nFor now, this is just a placeholder.`;
+    }
+  }
+</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-   <script type="text/javascript" >
-               // Dynamic Content Loading
+    <script>
+        // Dynamic Content Loading
         const courses = [
-            
+            {
+                title: "C Programming Mastery",
+                description: "Learn C from fundamentals to advanced concepts with hands-on projects",
+                duration: "8 Weeks",
+                students: "27+ Enrolled",
+                icon: "fa-c"
+            },
+            {
+                title: "C++ Programming",
+                description: "Master object-oriented programming with C++ and modern features",
+                duration: "10 Weeks",
+                students: "13+ Enrolled",
+                icon: "fa-file-code"
+            },
+            {
+                title: "Java Development",
+                description: "Comprehensive Java course with Spring Framework and enterprise patterns",
+                duration: "12 Weeks",
+                students: "18+ Enrolled",
+                icon: "fa-java"
+            },
+            {
+                title: "JavaScript Fundamentals",
+                description: "Modern JavaScript from basics to advanced concepts and frameworks",
+                duration: "6 Weeks",
+                students: "27+ Enrolled",
+                icon: "fa-js"
+            },
+            {
+                title: "Python for Everyone",
+                description: "Python programming for beginners to advanced developers",
+                duration: "8 Weeks",
+                students: "71+ Enrolled",
+                icon: "fa-python"
+            },
             {
                 title: "Full-Stack Masterclass",
-                description: "Complete MERN Stack Development with TypeScript",
+                description: "Complete MERN Stack Development with TypeScript and best practices",
                 duration: "24 Weeks",
-                students: "120+ Enrolled",
+                students: "46+ Enrolled",
                 icon: "fa-laptop-code"
-            },
-            {
-                title: "Python & Django Pro",
-                description: "Backend Development with REST APIs and PostgreSQL",
-                duration: "12 Weeks",
-                students: "100+ Enrolled",
-                icon: "fa-server"
-            },
-            {
-                title: "Modern Frontend Development",
-                description: "React, Redux, and Advanced JavaScript Concepts",
-                duration: "12 Weeks",
-                students: "200+ Enrolled",
-                icon: "fa-code"
             }
         ];
 
-       const projects = [
-           {
-        title: "CodeXtyping Speed Test",
-        description: "Interactive typing speed test application with real-time analytics and progress tracking",
-        tech: ["JavaScript", "Bootstrap", "CSS3", "HTML5"],
-        link: "codeXtyping.html", 
-        peragraph: ""
-    }, 
-     {
-    title: "CodeXshooting game",
-    description: "An engaging space shooter game where players control a spacecraft to destroy incoming enemy ships. Features multiple enemy types, progressive difficulty, particle explosion effects, and responsive controls for both desktop and mobile. Built with vanilla JavaScript and HTML5 Canvas for smooth animations and gameplay.",
-    tech: ["JavaScript", "Bootstrap", "CSS3", "HTML5"],
-    link: "codeXshootergame.html",
-          peragraph: ""
-},
-    {
-        title: "E-Commerce Platform",
-        description: "Full-featured shopping platform with real-time analytics",
-        tech: ["React", "Node.js", "MongoDB"],
-        // image: "project1.jpg"
-        peragraph: "live demo comming soon.."
-    },
-    {
-        title: "Learning Management System",
-        description: "Custom LMS for online course delivery",
-        tech: ["Django", "MySQL", "AWS"],
-        // image: "project2.jpg"
-        peragraph: "live demo comming soon.."
-    },
-    {
-        title: "School Management System",
-        description: "A complete school management solution to handle admissions, attendance, and results.",
-        tech: ["Django", "PostgreSQL", "Bootstrap"],
-        // image: "project3.jpg"
-        peragraph: "live demo comming soon.."
-    },
-    {
-        title: "Saraswati Shikshan Sadan Institute Website",
-        description: "Official website for Saraswati Shikshan Sadan, managing student records, admissions, and events.",
-        tech: ["Django", "HTML", "CSS", "JavaScript"],
-        // image: "project4.jpg",
-        link: "https://www.sssadan.com",
-         peragraph: ""
-    
-    },
-    {
-        title: "Book Library Store",
-        description: "An online book library store with user authentication, book catalog, and rental system.",
-        tech: ["Django", "SQLite", "React"],
-        // image: "project5.jpg"
-        peragraph: "live demo comming soon.."
-    }
-];
-
+        const projects = [
+            {
+                title: "CodeXtyping Speed Test",
+                description: "Interactive typing speed test application with real-time analytics and progress tracking",
+                tech: ["JavaScript", "Bootstrap", "CSS3", "HTML5"],
+                link: "codeXtyping.html",
+                peragraph: ""
+            }, 
+            {
+                title: "CodeXshooting Game",
+                description: "An engaging space shooter game with multiple enemy types, progressive difficulty, and particle effects",
+                tech: ["JavaScript", "Bootstrap", "CSS3", "HTML5"],
+                link: "codeXshootergame.html",
+                peragraph: ""
+            },
+            {
+                title: "E-Commerce Platform",
+                description: "Full-featured shopping platform with real-time analytics and admin dashboard",
+                tech: ["React", "Node.js", "MongoDB"],
+                peragraph: "Live demo coming soon.."
+            },
+            {
+                title: "Learning Management System",
+                description: "Custom LMS for online course delivery with progress tracking and certifications",
+                tech: ["Django", "MySQL", "AWS"],
+                peragraph: "Live demo coming soon.."
+            },
+            {
+                title: "School Management System",
+                description: "A complete school management solution to handle admissions, attendance, and results",
+                tech: ["Django", "PostgreSQL", "Bootstrap"],
+                peragraph: "Live demo coming soon.."
+            },
+            {
+                title: "Saraswati Shikshan Sadan Institute Website",
+                description: "Official website for Saraswati Shikshan Sadan, managing student records and admissions",
+                tech: ["Django", "HTML", "CSS", "JavaScript"],
+                link: "https://www.sssadan.com",
+                peragraph: ""
+            }
+        ];
 
         function loadCourses() {
             const container = document.getElementById('course-list');
             courses.forEach(course => {
                 const card = document.createElement('div');
-                card.className = 'col-md-4';
+                card.className = 'col-md-6 col-lg-4 animate-on-scroll';
                 card.innerHTML = `
                     <div class="course-card p-4 h-100">
-                        <i class="fas ${course.icon} fs-1 mb-3 text-success"></i>
-                        <h3 class="mb-3">${course.title}</h3>
-                        <p class="text-secondary">${course.description}</p>
-                        <div class="d-flex justify-content-between text-success">
-                            <span>${course.duration}</span>
-                            <span>${course.students}</span>
+                        <div class="text-center mb-4">
+                            <i class="fas ${course.icon} fs-1 mb-3 text-success"></i>
+                            <h3 class="mb-3">${course.title}</h3>
+                            <p class="text-secondary">${course.description}</p>
+                        </div>
+                        <div class="d-flex justify-content-between text-success mt-auto">
+                            <span><i class="far fa-clock me-1"></i> ${course.duration}</span>
+                            <span><i class="fas fa-user-graduate me-1"></i> ${course.students}</span>
                         </div>
                     </div>
                 `;
                 container.appendChild(card);
             });
         }
-function loadProjects() {
-    const container = document.getElementById('project-list');
-    projects.forEach(project => {
-        const card = document.createElement('div');
-        card.className = 'col-md-6 mb-4';
-        card.innerHTML = `
-            <div class="project-card p-4 h-100 shadow-sm rounded-3">
-                <h3 class="mb-3">
-                    ${project.link ? 
-                        `<a href="${project.link}" class="text-decoration-none text-light" target="_blank">` : ''}
-                        ${project.title}
-                    ${project.link ? '</a>' : ''}
-                    
-                </h3>
-                <p class="text-secondary mb-3">${project.description}</p>
-                 <p class="text-warning mb-3">${project.peragraph}</p>
-                <div class="d-flex flex-wrap gap-2 mb-3">
-                    ${project.tech.map(t => `<span class="badge bg-success bg-opacity-10 text-success">${t}</span>`).join('')}
-                </div>
-                ${project.link ? `
-                    <a href="${project.link}" class="btn btn-outline-success btn-sm" target="_blank">
-                        <i class="fas fa-external-link-alt me-2"></i>Live Demo
-                    </a>` : ''}
-                   
-            </div>
-        `;
-        container.appendChild(card);
-    });
-}
+
+        function loadProjects() {
+            const container = document.getElementById('project-list');
+            projects.forEach(project => {
+                const card = document.createElement('div');
+                card.className = 'col-md-6 col-lg-4 mb-4 animate-on-scroll';
+                card.innerHTML = `
+                    <div class="project-card p-4 h-100">
+                        <h3 class="mb-3">
+                            ${project.link ? 
+                                `<a href="${project.link}" class="text-decoration-none text-light" target="_blank">` : ''}
+                                ${project.title}
+                            ${project.link ? '</a>' : ''}
+                        </h3>
+                        <p class="text-secondary mb-3">${project.description}</p>
+                        <p class="text-warning mb-3">${project.peragraph}</p>
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            ${project.tech.map(t => `<span class="badge bg-success bg-opacity-10 text-success">${t}</span>`).join('')}
+                        </div>
+                        ${project.link ? `
+                            <a href="${project.link}" class="btn btn-outline-success btn-sm" target="_blank">
+                                <i class="fas fa-external-link-alt me-2"></i>Live Demo
+                            </a>` : 
+                            `<button class="btn btn-outline-secondary btn-sm" disabled>
+                                <i class="fas fa-clock me-2"></i>Coming Soon
+                            </button>`
+                        }
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
 
         // Initialize on load
         document.addEventListener('DOMContentLoaded', () => {
             loadCourses();
             loadProjects();
+            
+            // Initialize emailjs
+            emailjs.init("yLFLYyUyw_NuiMg-T");
+            
+            // Setup scroll animations
+            setupAnimations();
         });
 
-        // Smooth scroll
+        // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
 
-    (function() {
-        emailjs.init("yLFLYyUyw_NuiMg-T"); // Public Key
-    })();
+        // Scroll animation function
+        function setupAnimations() {
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+        }
 
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        const submitBtn = document.getElementById('submitBtn');
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const submitBtn = document.getElementById('submitBtn');
 
-        submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status"></span> Sending...';
-        submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status"></span> Sending...';
+            submitBtn.disabled = true;
 
-        emailjs.sendForm(
-            'service_8ul4c1f', 
-            'template_wigssdz', 
-            this,
-            'yLFLYyUyw_NuiMg-T' // <- Add this!
-        )
-        .then(() => {
-            alert('Message sent successfully!');
-            document.getElementById('contactForm').reset();
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-            alert(`Error: ${error.text}`);
-        })
-        .finally(() => {
-            submitBtn.innerHTML = '<i class="fa fa-paper-plane"></i> Send Message';
-            submitBtn.disabled = false;
+            emailjs.sendForm(
+                'service_8ul4c1f', 
+                'template_wigssdz', 
+                this
+            )
+            .then(() => {
+                alert('Message sent successfully!');
+                document.getElementById('contactForm').reset();
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('Failed to send message. Please try again later.');
+            })
+            .finally(() => {
+                submitBtn.innerHTML = '<i class="fa fa-paper-plane me-2"></i> Send Message';
+                submitBtn.disabled = false;
+            });
         });
-    });
        
-    // Prevent right-click context menu
-document.addEventListener('contextmenu', (e) => {
-    e.preventDefault();
-    return false;
-});
+        // Prevent right-click context menu
+        document.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            return false;
+        });
 
-// Prevent common keyboard shortcuts
-document.addEventListener('keydown', (e) => {
-    // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C, Ctrl+U
-    if (e.key === 'F12' || 
-        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
-        (e.ctrlKey && e.shiftKey && e.key === 'J') ||
-        (e.ctrlKey && e.shiftKey && e.key === 'C') ||
-        (e.ctrlKey && e.key === 'u')) {
-        e.preventDefault();
-        return false;
-    }
-});
-
-// Extra protection (not reliable)
-let devtools = /./;
-devtools.toString = function() {
-    this.opened = true;
-    return '';
-}
-
-setInterval(function() {
-    if (devtools.opened) {
-        devtools.opened = false;
-        window.location.reload();
-    }
-}, 1000);
-</script>
-
-
-  
+        // Prevent common keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C, Ctrl+U
+            if (e.key === 'F12' || 
+                (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+                (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+                (e.ctrlKey && e.shiftKey && e.key === 'C') ||
+                (e.ctrlKey && e.key === 'u')) {
+                e.preventDefault();
+                return false;
+            }
+        });
+    </script>
 </body>
 </html>
